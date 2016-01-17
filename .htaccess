@@ -341,7 +341,7 @@ AddDefaultCharset utf-8
     RewriteRule ^ - [env=PROTO:http]
 
     # (7)
-    RewriteRule ^send$ send.php [L,NC,QSA]
+    RewriteRule ^send$ pages\/e\-mail\/send.php [L,NC,QSA]
 
 </IfModule>
 
