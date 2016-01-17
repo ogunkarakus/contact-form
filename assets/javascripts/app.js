@@ -1,3 +1,5 @@
+/* app.js */
+
 /**
  * Initialize the app.
  *
