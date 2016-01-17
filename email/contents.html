@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>{{ $subject }}</title>
+	</head>
+	<body>
+		<div style="width: 640px; font-family: Arial, Helvetica, sans-serif; font-size: 11px;">
+			<h1>{{ $subject }}</h1>
+			<ul><li><strong>{{ $fields['email'] }}</strong>:&nbsp;{{ $email }}</li><li><strong>{{ $fields['ip'] }}</strong>:&nbsp;{{ $ip }}</li><li><strong>{{ $fields['name'] }}</strong>:&nbsp;{{ $name }}</li></ul>
+			<h2>{{ $fields['message'] }}</h2>
+			<div>{{ $message }}</div>
+		</div>
+	</body>
+</html>
