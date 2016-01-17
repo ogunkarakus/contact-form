@@ -336,9 +336,12 @@ AddDefaultCharset utf-8
 
     # (6)
     RewriteCond %{HTTPS} =on
-    RewriteRule ^ - [env=proto:https]
+    RewriteRule ^ - [env=PROTO:https]
     RewriteCond %{HTTPS} !=on
-    RewriteRule ^ - [env=proto:http]
+    RewriteRule ^ - [env=PROTO:http]
+
+    # (7)
+    RewriteRule ^send$ index\.php?action=send [L,NC,QSA]
 
 </IfModule>
 
