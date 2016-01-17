@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php
+
+    if ( $_GET[ 'action' ] == 'send' )
+    {
+        //
+    }
+
+?><!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
