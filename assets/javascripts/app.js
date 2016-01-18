@@ -24,9 +24,9 @@ function app_init( callback ) {
 /**
  * Register event listener to element.
  *
- * @param mixed element
+ * @param mixed  element
  * @param string name
- * @param mixed callback
+ * @param mixed  callback
  *
  * @return void
  */
@@ -40,6 +40,15 @@ function app_add_event_listener( element, name, callback ) {
     }
 }
 
+/**
+ * Send POST data to given URL.
+ *
+ * @param string   url
+ * @param array    data
+ * @param callable callback
+ *
+ * @return void
+ */
 function app_send_post_data( url, data, callback ) {
     var request = new XMLHttpRequest();
 
