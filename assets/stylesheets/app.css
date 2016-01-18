@@ -55,6 +55,7 @@ form#contact-form input {
 }
 
 form#contact-form textarea {
+    resize: none;
     width: 97.4%;
 }
 

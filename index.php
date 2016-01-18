@@ -34,7 +34,7 @@
                             <span>Message</span>
                             <span>:</span>
                         </label>
-                        <textarea id="message" name="message" required="required" rows="5" style="resize:none"></textarea>
+                        <textarea id="message" name="message" required="required" rows="5"></textarea>
                     </div>
                     <div class="form-item-group-item">
                         <button type="submit">
