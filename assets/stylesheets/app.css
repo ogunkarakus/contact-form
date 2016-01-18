@@ -22,6 +22,10 @@ button:hover {
     color: #32506d;
 }
 
+button, label {
+    cursor: pointer;
+}
+
 div#app {
     background-color: rgba(18, 86, 136, 0.5);
     height: 100%;
