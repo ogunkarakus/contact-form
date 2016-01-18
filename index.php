@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+
+    $is_cli = strpos( php_sapi_name(), 'cli' ) !== false;
+
+    $form_action = $is_cli ? 'pages/e-mail/send.php' : 'send';
+
+?><!DOCTYPE html>
 <html>
     <head>
         <link href="assets/images/favicon.ico" rel="icon" />
@@ -14,7 +20,7 @@
             <section id="contact-form-section">
                 <h1>Contact Form</h1>
                 <hr />
-                <form accept-charset="UTF-8" action="send" id="contact-form" method="post">
+                <form accept-charset="UTF-8" action="<?php echo $form_action; ?>" id="contact-form" method="post">
                     <div class="form-item-group-item">
                         <label for="name">
                             <span>Name</span>
@@ -37,12 +43,13 @@
                         <textarea id="message" name="message" required="required" rows="5"></textarea>
                     </div>
                     <div class="form-item-group-item">
-                        <button type="submit">
+                        <button id="form-submit-button" type="submit">
                             <i class="fa fa-fw fa-send"></i>
                         </button>
                     </div>
                 </form>
             </section>
         </div>
+        <script src="assets/javascripts/app.js"></script>
     </body>
 </html>
