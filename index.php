@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="favicon.ico" rel="icon" />
+        <link href="assets/images/favicon.ico" rel="icon" />
         <link href="assets/stylesheets/normalize.min.css" rel="stylesheet" />
         <link href="assets/stylesheets/font-awesome.min.css" rel="stylesheet" />
         <link href="assets/stylesheets/app.css" rel="stylesheet" />
