@@ -17,6 +17,6 @@
 
 All code is licensed under the [MIT license][3] in the repository.
 
-[1]: https://github.com/ogunkarakus/contact-form/raw/master/screenshot-tr_TR.png
+[1]: https://github.com/ogunkarakus/contact-form/raw/master/screenshot.png
 [2]: https://github.com/ogunkarakus/contact-form/archive/master.zip
 [3]: https://opensource.org/licenses/MIT
