@@ -104,11 +104,15 @@
 
             if ( $is_sended )
             {
-                // Mail sent!
+                exit( json_encode( [
+                    'success' => true,
+                ] ) );
             }
             else
             {
-                // Something went wrong!
+                exit( json_encode( [
+                    'success' => false,
+                ] ) );
             }
         }
         catch ( Exception $exception )
