@@ -97,22 +97,27 @@ app_init( function () {
     app_add_event_listener( form, "submit", function ( e ) {
         e.preventDefault();
 
-        var name = form.querySelector( "input[name=\"name\"]" ),
-            e_mail = form.querySelector( "input[type=\"email\"]" ),
-            message = form.querySelector( "textarea[name=\"message\"]" );
+        var body = form.querySelector( "textarea[name=\"body\"]" ),
+            subject = form.querySelector( "input[name=\"subject\"]" ),
+            to_name = form.querySelector( "input[name=\"to_name\"]" ),
+            to_address = form.querySelector( "input[type=\"email\"]" );
 
         var data = [
             {
-                "name": "name",
-                "value": name.value,
+                "name": "body",
+                "value": body.value,
             },
             {
-                "name": "e-mail-address",
-                "value": e_mail.value,
+                "name": "subject",
+                "value": subject.value,
             },
             {
-                "name": "message",
-                "value": message.value,
+                "name": "to_name",
+                "value": to_name.value,
+            },
+            {
+                "name": "to_address",
+                "value": to_address.value,
             }
         ];
 

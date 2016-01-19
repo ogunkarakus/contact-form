@@ -26,21 +26,28 @@
                             <span>Name</span>
                             <span>:</span>
                         </label>
-                        <input id="name" name="name" type="text" required="required" />
+                        <input id="name" name="to_name" type="text" required="required" />
                     </div>
                     <div class="form-item-group-item">
-                        <label for="e-mail-address">
+                        <label for="address">
                             <span>E-mail Address</span>
                             <span>:</span>
                         </label>
-                        <input id="e-mail-address" name="e-mail-address" type="email" required="required" />
+                        <input id="address" name="to_address" type="email" required="required" />
                     </div>
                     <div class="form-item-group-item">
-                        <label for="message">
+                        <label for="subject">
+                            <span>Subject</span>
+                            <span>:</span>
+                        </label>
+                        <input id="subject" name="subject" type="text" required="required" />
+                    </div>
+                    <div class="form-item-group-item">
+                        <label for="body">
                             <span>Message</span>
                             <span>:</span>
                         </label>
-                        <textarea id="message" name="message" required="required" rows="5"></textarea>
+                        <textarea id="body" name="body" required="required" rows="5"></textarea>
                     </div>
                     <div class="form-item-group-item">
                         <button id="form-submit-button" type="submit">
