@@ -6,7 +6,7 @@
 
 Depoyu __*zip*__ formatında indirmek için **[buraya tıkla][2]**yın.
 
-## Konfigürasyon
+## Yapılandırma
 
 1. Komut istemcisini açın.
 2. `composer install --no-dev --prefer-dist` komutunu uygulayın.
