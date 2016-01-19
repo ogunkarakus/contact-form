@@ -1,5 +1,10 @@
 <?php
 
+    if ( ! defined( 'CONTACT_FORM' ) )
+    {
+        exit( 'Hacking?' );
+    }
+
     return [
         'form' => [
             'input' => [

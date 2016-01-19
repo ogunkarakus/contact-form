@@ -4,6 +4,8 @@
 
     use M1\Env\Parser as EnvParser;
 
+    define( 'CONTACT_FORM', true );
+
     $env = EnvParser::parse( file_get_contents( '.env' ) );
 
     $is_cli = strpos( php_sapi_name(), 'cli' ) !== false;

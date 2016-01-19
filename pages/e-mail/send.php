@@ -125,3 +125,9 @@
             ] ) );
         }
     }
+    else
+    {
+        exit( json_encode( [
+            'success' => false,
+        ] ) );
+    }
