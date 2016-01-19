@@ -4,14 +4,14 @@
 
 ## Kurulum
 
-**[Buraya tıkla][1]**yarak depoyu *zip* formatında indirin.
+Depoyu *zip* formatında indirmek için **[buraya tıkla][1]**yın.
 
 ## Konfigürasyon
 
 1. Komut istemcisini açın.
 2. `composer install --no-dev --prefer-dist` komutunu uygulayın.
-3. **.env.example** dosyasının adını **.env** olarak değiştirin.
-4. **.env** dosyasındaki ilgili alanları uygun değerlerle doldurun.
+3. *.env.example* dosyasının adını *.env* olarak değiştirin.
+4. *.env* dosyasındaki ilgili alanları uygun değerlerle doldurun.
 
 ## Lisanslama
 
