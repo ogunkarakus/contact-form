@@ -124,7 +124,18 @@ app_init( function () {
         var action = form.getAttribute( "action" );
 
         app_send_post_data( action, data, function ( response ) {
-            //
+            response = JSON.parse( response );
+
+            // TODO: modal messages..
+            // TODO: sending indicator..
+            if ( response.success )
+            {
+                alert( "Mail sent!" );
+            }
+            else
+            {
+                alert( "Something went wrong!" );
+            }
         } );
 
         return false;
