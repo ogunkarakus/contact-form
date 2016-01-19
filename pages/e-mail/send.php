@@ -4,8 +4,9 @@
 
     $is_ajax = isset( $_SERVER[ 'HTTP_X_REQUESTED_WITH' ] );
 
-    if ( $is_ajax )
-        $is_ajax = $_SERVER[ 'HTTP_X_REQUESTED_WITH' ] == 'XMLHttpRequest';
+    $ajax_header = $_SERVER[ 'HTTP_X_REQUESTED_WITH' ];
+
+    $is_ajax = $is_ajax ? ( $ajax_header == 'XMLHttpRequest' ) : false;
 
     if ( $is_ajax )
     {
