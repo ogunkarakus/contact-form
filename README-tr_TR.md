@@ -16,9 +16,7 @@
 ## Lisanslama
 
 Bu depodaki tüm kodlar [MIT lisansı][3] ile lisanslanmıştır.
-Lisans metninin tamamını **[LICENSE.txt][4]** dosyasında görüntüleyebilirsiniz.
 
 [1]: https://github.com/ogunkarakus/contact-form/raw/master/screenshot-tr_TR.png
 [2]: https://github.com/ogunkarakus/contact-form/archive/master.zip
 [3]: https://opensource.org/licenses/MIT
-[4]: https://github.com/ogunkarakus/contact-form/blob/master/LICENSE.txt
