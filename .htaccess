@@ -3,9 +3,6 @@
     RewriteEngine On
     Options +FollowSymlinks
 
-    RewriteRule ^?\.env$ - [F,L]
-    RewriteRule ^?\.htaccess$ - [F,L]
-
     RewriteRule ^favicon\.ico$ assets\/images\/favicon\.ico [L,NC,QSA]
     RewriteRule ^send$ pages\/e\-mail\/send.php [L,NC,QSA]
 
