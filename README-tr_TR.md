@@ -11,7 +11,7 @@
 1. Komut istemcisini açın.
 2. `composer install --no-dev --prefer-dist` komutunu uygulayın.
 3. **.env.example** dosyasının adını **.env** olarak değiştirin.
-4. **.env** dosyanındaki ilgili alanları uygun değerlerle doldurun.
+4. **.env** dosyasındaki ilgili alanları uygun değerlerle doldurun.
 
 ## Lisanslama
 
