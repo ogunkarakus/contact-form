@@ -14,6 +14,7 @@
 
     if ( $is_ajax )
     {
+        // TODO: Input filtering (XSS, is empty? etc.)
         $data = [
             'body' => $_POST[ 'body' ],
             'subject' => $_POST[ 'subject' ],
