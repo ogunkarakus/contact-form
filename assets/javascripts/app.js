@@ -51,12 +51,25 @@ $( document ).ready( function () {
 
         var action = form.getAttribute( "action" );
 
+        $( "button#form-submit-button" ).html(
+            "<i class=\"fa fa-fw fa-pulse fa-spinner\"></i>"
+        ).attr(
+            "disabled",
+            "disabled"
+        );
+
         $.ajax( {
             url: action,
             data: data,
             dataType: "json",
             type: "POST"
         } ).done( function ( response ) {
+            $( "button#form-submit-button" ).html(
+                "<i class=\"fa fa-fw fa-send\"></i>"
+            ).removeAttr(
+                "disabled"
+            );
+
             if ( response.success ) {
                 toastr[ "success" ]( l10n.messages.success );
             } else {

@@ -26,6 +26,13 @@ button, label {
     cursor: pointer;
 }
 
+button:disabled {
+    background-color: #766a65;
+    color: #fff;
+    cursor: not-allowed;
+    pointer-events: all !important;
+}
+
 div#app {
     background-color: rgba(18, 86, 136, 0.5);
     height: 100%;

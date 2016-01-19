@@ -14,7 +14,6 @@
 
     if ( $is_ajax )
     {
-        // TODO: "body" filter ( XSS etc. )
         $input_names = [
             'body', 'subject', 'to_address', 'to_name',
         ];
@@ -83,10 +82,23 @@
 
         $mailer = Swift_Mailer::newInstance( $transport );
 
+        $loader = new Twig_Loader_Filesystem( '../../templates' );
+
+        $twig = new Twig_Environment( $loader, [
+            'autoescape' => true,
+            'cache' => false
+        ] );
+
+        $template = $twig->loadTemplate( $env[ 'TWIG_TEMPLATE_FILE_NAME' ] );
+
+        $body = $template->render( [
+            'body' => $data[ 'body' ],
+            'subject' => $data[ 'subject' ]
+        ] );
+
         $message = Swift_Message::newInstance();
 
-        // TODO: HTML templating...
-        $message->setBody( $data[ 'body' ], 'text/html' );
+        $message->setBody( $body, 'text/html' );
 
         $message->setFrom( [
             $env[ 'SMTP_FROM_ADDRESS' ] => $env[ 'SMTP_FROM_NAME' ]
