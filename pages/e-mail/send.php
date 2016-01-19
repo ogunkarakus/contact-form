@@ -14,7 +14,23 @@
 
     if ( $is_ajax )
     {
-        // TODO: Input filtering (XSS, is empty? etc.)
+        // TODO: "body" filter ( XSS etc. )
+        $input_names = [
+            'body', 'subject', 'to_address', 'to_name',
+        ];
+
+        foreach ( $input_names as $input_name )
+        {
+            if ( isset( $_POST[ $input_name ] ) &&
+                 empty( $_POST[ $input_name ] )
+               )
+            {
+                exit( json_encode( [
+                    'success' => false,
+                ] ) );
+            }
+        }
+
         $data = [
             'body' => $_POST[ 'body' ],
             'subject' => $_POST[ 'subject' ],
@@ -23,6 +39,37 @@
                 'name' => $_POST[ 'to_name' ],
             ],
         ];
+
+        if ( ! is_string( $data[ 'subject' ] ) ||
+             mb_strlen(
+                 $data[ 'subject' ],
+                 mb_detect_encoding( $data[ 'subject' ] )
+             ) > 70
+           )
+        {
+            exit( json_encode( [
+                'success' => false,
+            ] ) );
+        }
+
+        if ( ! filter_var( $data[ 'to' ][ 'address' ], FILTER_VALIDATE_EMAIL ) )
+        {
+            exit( json_encode( [
+                'success' => false,
+            ] ) );
+        }
+
+        if ( ! is_string( $data[ 'to' ][ 'name' ] ) ||
+             mb_strlen(
+                 $data[ 'to' ][ 'name' ],
+                 mb_detect_encoding( $data[ 'to' ][ 'name' ] )
+             ) > 70
+           )
+        {
+            exit( json_encode( [
+                'success' => false,
+            ] ) );
+        }
 
         $env = EnvParser::parse( file_get_contents( '../../.env' ) );
 
@@ -51,15 +98,26 @@
             $data[ 'to' ][ 'address' ] => $data[ 'to' ][ 'name' ]
         ] );
 
-        // TODO: try-catch block
-        $is_sended = $mailer->send( $message );
+        try
+        {
+            $is_sended = $mailer->send( $message );
 
-        if ( $is_sended )
-        {
-            // Mail sent!
+            if ( $is_sended )
+            {
+                // Mail sent!
+            }
+            else
+            {
+                // Something went wrong!
+            }
         }
-        else
+        catch ( Exception $exception )
         {
-            // Something went wrong!
+            exit( json_encode( [
+                'success' => false,
+                'error' => [
+                    'message' => $exception->getMessage(),
+                ],
+            ] ) );
         }
     }
