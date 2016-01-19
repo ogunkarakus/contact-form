@@ -29,9 +29,22 @@
         <link href="assets/images/favicon.ico" rel="icon" />
         <link href="assets/stylesheets/normalize.min.css" rel="stylesheet" />
         <link href="assets/stylesheets/font-awesome.min.css" rel="stylesheet" />
+        <link href="assets/stylesheets/toastr.min.css" rel="stylesheet" />
         <link href="assets/stylesheets/app.css" rel="stylesheet" />
         <meta charset="UTF-8" />
         <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport" />
+        <!--[if lt IE 9]>
+            <script src="assets/javascripts/html5shiv.min.js"></script>
+            <script src="assets/javascripts/respond.min.js"></script>
+        <![endif]-->
+        <script>
+            var l10n = {
+                "messages": {
+                    "error": "<?php echo $messages[ 'mail' ][ 'sent_error' ]; ?>",
+                    "success": "<?php echo $messages[ 'mail' ][ 'sent_success' ]; ?>"
+                }
+            };
+        </script>
         <title><?php echo $messages[ 'title' ]; ?></title>
     </head>
     <body>
@@ -76,6 +89,8 @@
                 </form>
             </section>
         </div>
+        <script src="assets/javascripts/jquery.min.js"></script>
+        <script src="assets/javascripts/toastr.min.js"></script>
         <script src="assets/javascripts/app.js"></script>
     </body>
 </html>

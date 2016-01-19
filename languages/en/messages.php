@@ -9,5 +9,9 @@
                 'subject' => 'Subject',
             ],
         ],
+        'mail' => [
+            'sent_error' => 'An error occured while sending the message.',
+            'sent_success' => 'The message was sent successfully.'
+        ],
         'title' => 'Contact',
     ];

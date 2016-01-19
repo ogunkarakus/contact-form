@@ -1,5 +1,8 @@
 /* app.js */
 
+/* --- */
+var app = {};
+
 /**
  * Initialize the app.
  *
@@ -7,7 +10,7 @@
  *
  * @return void
  */
-function app_init( callback ) {
+app.init = function ( callback ) {
     if ( document.readyState != "loading" ) {
         callback();
     } else if ( document.addEventListener ) {
@@ -30,7 +33,7 @@ function app_init( callback ) {
  *
  * @return void
  */
-function app_add_event_listener( element, name, callback ) {
+app.on = function ( element, name, callback ) {
     if ( element.addEventListener ) {
         element.addEventListener( name, callback );
     } else {
@@ -49,7 +52,7 @@ function app_add_event_listener( element, name, callback ) {
  *
  * @return void
  */
-function app_send_post_data( url, data, callback ) {
+app.ajax = function ( url, data, callback ) {
     var request = new XMLHttpRequest();
 
     request.open( "POST", url, true );
@@ -90,11 +93,29 @@ function app_send_post_data( url, data, callback ) {
 
 /* --- */
 
-app_init( function () {
+app.init( function () {
+
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "extendedTimeOut": 1000,
+        "hideDuration": 1000,
+        "hideEasing": "linear",
+        "hideMethod": "fadeOut",
+        "newestOnTop": true,
+        "onclick": null,
+        "preventDuplicates": false,
+        "progressBar": false,
+        "positionClass": "toast-top-full-width",
+        "showEasing": "linear",
+        "showDuration": 1000,
+        "showMethod": "fadeIn",
+        "timeOut": 5000
+    };
 
     var form = document.forms[0];
 
-    app_add_event_listener( form, "submit", function ( e ) {
+    app.on( form, "submit", function ( e ) {
         e.preventDefault();
 
         var body = form.querySelector( "textarea[name=\"body\"]" ),
@@ -123,18 +144,18 @@ app_init( function () {
 
         var action = form.getAttribute( "action" );
 
-        app_send_post_data( action, data, function ( response ) {
+        app.ajax( action, data, function ( response ) {
             response = JSON.parse( response );
 
             // TODO: modal messages..
             // TODO: sending indicator..
             if ( response.success )
             {
-                alert( "Mail sent!" );
+                toastr["success"]( l10n.messages.success );
             }
             else
             {
-                alert( "Something went wrong!" );
+                toastr["error"]( l10n.messages.error );
             }
         } );
 
