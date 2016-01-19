@@ -4,7 +4,7 @@
 
 ## Kurulum
 
-Depoyu *zip* formatında indirmek için **[buraya tıkla][1]**yın.
+Depoyu *zip* formatında indirmek için **[buraya tıkla][2]**yın.
 
 ## Konfigürasyon
 
