@@ -34,7 +34,7 @@
             'body' => $_POST[ 'body' ],
             'from' => [
                 'address' => $_POST[ 'from_address' ],
-                'name' => $_POST[ 'from_address' ],
+                'name' => $_POST[ 'from_name' ],
             ],
             'subject' => $_POST[ 'subject' ],
         ];
