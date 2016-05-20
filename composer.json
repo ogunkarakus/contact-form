@@ -1,7 +1,6 @@
 {
     "require": {
         "m1/env": "~2",
-        "php": ">=5.6.17",
         "swiftmailer/swiftmailer": "~5",
         "twig/twig": "~1"
     }
