@@ -1,0 +1,83 @@
+/* app.css */
+
+body {
+    background-color: #32506d;
+    color: #fff;
+    font-family: "Consolas", monospace, monospace;
+}
+
+button, input, textarea {
+    border: 1px solid #000;
+    color: #000;
+}
+
+button {
+    background-color: #32506d;
+    color: #fff;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #32506d;
+}
+
+button, label {
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #766a65;
+    color: #fff;
+    cursor: not-allowed;
+    pointer-events: all !important;
+}
+
+div#app {
+    background-color: rgba(18, 86, 136, 0.5);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+div.form-item-group-item {
+    margin-bottom: 1.25%;
+}
+
+div.form-item-group-item:last-child {
+    margin-bottom: 0;
+}
+
+form#contact-form {
+    padding: 2.5% 5%;
+}
+
+form#contact-form button {
+    width: 100%;
+}
+
+form#contact-form input {
+    height: 40px;
+    padding-left: 1.25%;
+    padding-right: 1.25%;
+    width: 97.43%;
+}
+
+form#contact-form textarea {
+    resize: none;
+    width: 97.4%;
+}
+
+form#contact-form button {
+    height: 40px;
+}
+
+form#contact-form textarea {
+    padding: 1.25%;
+}
+
+section#contact-form-section > h1 {
+    text-align: center;
+}

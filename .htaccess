@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+
+    RewriteEngine On
+    Options +FollowSymlinks
+
+    RewriteRule ^favicon\.ico$ assets\/images\/favicon\.ico [L,NC,QSA]
+    RewriteRule ^send$ pages\/e\-mail\/send.php [L,NC,QSA]
+
+</IfModule>
