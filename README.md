@@ -17,6 +17,6 @@
 
 All code is licensed under the [MIT license][3] in the repository.
 
-[1]: https://github.com/ogunkarakus/contact-form/raw/master/screenshot.png
-[2]: https://github.com/ogunkarakus/contact-form/archive/v1.0.0.zip
+[1]: https://github.com/ogunkarakus/contact-form/raw/1.0.0/screenshot.png
+[2]: https://github.com/ogunkarakus/contact-form/archive/1.0.0.zip
 [3]: https://opensource.org/licenses/MIT
