@@ -60,14 +60,14 @@
                             <span><?php echo $messages[ 'form' ][ 'input' ][ 'name' ]; ?></span>
                             <span>:</span>
                         </label>
-                        <input id="name" name="to_name" type="text" required="required" />
+                        <input id="name" name="from_name" type="text" required="required" />
                     </div>
                     <div class="form-item-group-item">
                         <label for="address">
                             <span><?php echo $messages[ 'form' ][ 'input' ][ 'address' ]; ?></span>
                             <span>:</span>
                         </label>
-                        <input id="address" name="to_address" type="email" required="required" />
+                        <input id="address" name="from_address" type="email" required="required" />
                     </div>
                     <div class="form-item-group-item">
                         <label for="subject">

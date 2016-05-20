@@ -15,7 +15,7 @@
     if ( $is_ajax )
     {
         $input_names = [
-            'body', 'subject', 'to_address', 'to_name',
+            'body', 'subject', 'from_address', 'from_name',
         ];
 
         foreach ( $input_names as $input_name )
@@ -32,11 +32,11 @@
 
         $data = [
             'body' => $_POST[ 'body' ],
-            'subject' => $_POST[ 'subject' ],
-            'to' => [
-                'address' => $_POST[ 'to_address' ],
-                'name' => $_POST[ 'to_name' ],
+            'from' => [
+                'address' => $_POST[ 'from_address' ],
+                'name' => $_POST[ 'from_address' ],
             ],
+            'subject' => $_POST[ 'subject' ],
         ];
 
         if ( ! is_string( $data[ 'subject' ] ) ||
@@ -51,17 +51,17 @@
             ] ) );
         }
 
-        if ( ! filter_var( $data[ 'to' ][ 'address' ], FILTER_VALIDATE_EMAIL ) )
+        if ( ! filter_var( $data[ 'from' ][ 'address' ], FILTER_VALIDATE_EMAIL ) )
         {
             exit( json_encode( [
                 'success' => false,
             ] ) );
         }
 
-        if ( ! is_string( $data[ 'to' ][ 'name' ] ) ||
+        if ( ! is_string( $data[ 'from' ][ 'name' ] ) ||
              mb_strlen(
-                 $data[ 'to' ][ 'name' ],
-                 mb_detect_encoding( $data[ 'to' ][ 'name' ] )
+                 $data[ 'from' ][ 'name' ],
+                 mb_detect_encoding( $data[ 'from' ][ 'name' ] )
              ) > 70
            )
         {
@@ -100,14 +100,14 @@
 
         $message->setBody( $body, 'text/html' );
 
-        $message->setFrom( [
-            $env[ 'SMTP_FROM_ADDRESS' ] => $env[ 'SMTP_FROM_NAME' ]
+        $message->setTo( [
+            $env[ 'SMTP_TO_ADDRESS' ] => $env[ 'SMTP_TO_NAME' ]
         ] );
 
         $message->setSubject( $data[ 'subject' ] );
 
-        $message->setTo( [
-            $data[ 'to' ][ 'address' ] => $data[ 'to' ][ 'name' ]
+        $message->setFrom( [
+            $data[ 'from' ][ 'address' ] => $data[ 'from' ][ 'name' ]
         ] );
 
         try
