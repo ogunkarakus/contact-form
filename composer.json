@@ -1,7 +1,1 @@
-{
-    "require": {
-        "m1/env": "~2",
-        "swiftmailer/swiftmailer": "~5",
-        "twig/twig": "~1"
-    }
-}
+{}
