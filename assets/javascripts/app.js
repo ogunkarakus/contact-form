@@ -27,8 +27,8 @@ $( document ).ready( function () {
 
         var body = form.querySelector( "textarea[name=\"body\"]" ),
             subject = form.querySelector( "input[name=\"subject\"]" ),
-            to_name = form.querySelector( "input[name=\"to_name\"]" ),
-            to_address = form.querySelector( "input[type=\"email\"]" );
+            from_name = form.querySelector( "input[name=\"from_name\"]" ),
+            from_address = form.querySelector( "input[type=\"email\"]" );
 
         var data = [
             {
@@ -40,12 +40,12 @@ $( document ).ready( function () {
                 "value": subject.value,
             },
             {
-                "name": "to_name",
-                "value": to_name.value,
+                "name": "from_name",
+                "value": from_name.value,
             },
             {
-                "name": "to_address",
-                "value": to_address.value,
+                "name": "from_address",
+                "value": from_address.value,
             }
         ];
 
