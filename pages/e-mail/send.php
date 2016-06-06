@@ -51,7 +51,8 @@
             ] ) );
         }
 
-        if ( ! filter_var( $data[ 'from' ][ 'address' ], FILTER_VALIDATE_EMAIL ) )
+        if ( ! filter_var( $data[ 'from' ][ 'address' ],
+                           FILTER_VALIDATE_EMAIL ) )
         {
             exit( json_encode( [
                 'success' => false,

@@ -9,7 +9,7 @@
 ## Configuration
 
 1. Open the command prompt.
-2. Run the `composer install --no-dev --prefer-dist` command.
+2. Run the `composer install --no-dev --prefer-dist -o` command.
 3. The name of the __*.env.example*__ file, change the __*.env*__.
 4. Fill in the relevant fields with the appropriate values __*.env*__ file.
 
