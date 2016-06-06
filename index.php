@@ -6,6 +6,11 @@
 
     define( 'CONTACT_FORM', true );
 
+    if ( ! file_exists( '.env' ) )
+    {
+        exit( '.env file does not exists.' );
+    }
+
     $env = EnvParser::parse( file_get_contents( '.env' ) );
 
     $is_cli = strpos( php_sapi_name(), 'cli' ) !== false;
@@ -25,6 +30,26 @@
         );
     }
 
+    $cdn = 'https://cdnjs.cloudflare.com/ajax/libs';
+
+    $assets = [
+        'scripts' => [
+            'html5shiv' => $cdn . '/' . 'html5shiv/3.7.3/html5shiv.min.js',
+            'jquery' => $cdn . '/' . 'jquery/2.2.4/jquery.min.js',
+            'respond' => $cdn . '/' . 'respond.js/1.4.2/respond.min.js',
+            'toastr' => $cdn . '/' . 'toastr.js/2.1.2/toastr.min.js',
+        ],
+        'styles' => [
+            'font-awesome' => $cdn . '/' .
+                              'font-awesome/4.6.3/css/font-awesome.min.css',
+            'normalize' => $cdn . '/' . 'normalize/4.1.1/normalize.min.css',
+            'toastr' => $cdn . '/' . 'toastr.js/2.1.2/toastr.min.css',
+        ],
+    ];
+
+    $scripts = $assets[ 'scripts' ];
+    $styles = $assets[ 'styles' ];
+
     $frm_input_address = $messages[ 'form' ][ 'input' ][ 'address' ];
     $frm_input_name = $messages[ 'form' ][ 'input' ][ 'name' ];
     $frm_input_subject = $messages[ 'form' ][ 'input' ][ 'subject' ];
@@ -40,17 +65,20 @@
 ?><!DOCTYPE html>
 <html>
     <head>
-        <link href="assets/images/favicon.ico" rel="icon" />
-        <link href="assets/stylesheets/normalize.min.css" rel="stylesheet" />
-        <link href="assets/stylesheets/font-awesome.min.css"
+        <link href="//cdnjs.cloudflare.com" rel="dns-prefetch" />
+        <link href="assets/images/favicon.ico" rel="shortcut icon" />
+        <link href="<?php echo $styles[ 'normalize' ]; ?>"
               rel="stylesheet" />
-        <link href="assets/stylesheets/toastr.min.css" rel="stylesheet" />
+        <link href="<?php echo $styles[ 'font-awesome' ]; ?>"
+              rel="stylesheet" />
+        <link href="<?php echo $styles[ 'toastr' ]; ?>"
+              rel="stylesheet" />
         <link href="assets/stylesheets/app.css" rel="stylesheet" />
         <meta charset="UTF-8" />
         <meta content="<?php echo $viewport; ?>" name="viewport" />
         <!--[if lt IE 9]>
-            <script src="assets/javascripts/html5shiv.min.js"></script>
-            <script src="assets/javascripts/respond.min.js"></script>
+            <script src="<?php echo $scripts[ 'html5shiv' ]; ?>"></script>
+            <script src="<?php echo $scripts[ 'respond' ]; ?>"></script>
         <![endif]-->
         <script>
             var l10n = {
@@ -119,8 +147,8 @@
                 </form>
             </section>
         </div>
-        <script src="assets/javascripts/jquery.min.js"></script>
-        <script src="assets/javascripts/toastr.min.js"></script>
+        <script src="<?php echo $scripts[ 'jquery' ]; ?>"></script>
+        <script src="<?php echo $scripts[ 'toastr' ]; ?>"></script>
         <script src="assets/javascripts/app.js"></script>
     </body>
 </html>
