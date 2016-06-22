@@ -12,6 +12,10 @@
 
     $is_ajax = $is_ajax ? ( $ajax_header == 'XMLHttpRequest' ) : false;
 
+    $success_false = json_encode( [ 'success' => false, ] );
+
+    $success_true = json_encode( [ 'success' => true, ] );
+
     if ( $is_ajax )
     {
         $input_names = [
@@ -24,9 +28,7 @@
                  empty( $_POST[ $input_name ] )
                )
             {
-                exit( json_encode( [
-                    'success' => false,
-                ] ) );
+                exit( $success_false );
             }
         }
 
@@ -46,17 +48,13 @@
              ) > 70
            )
         {
-            exit( json_encode( [
-                'success' => false,
-            ] ) );
+            exit( $success_false );
         }
 
         if ( ! filter_var( $data[ 'from' ][ 'address' ],
                            FILTER_VALIDATE_EMAIL ) )
         {
-            exit( json_encode( [
-                'success' => false,
-            ] ) );
+            exit( $success_false );
         }
 
         if ( ! is_string( $data[ 'from' ][ 'name' ] ) ||
@@ -66,9 +64,7 @@
              ) > 70
            )
         {
-            exit( json_encode( [
-                'success' => false,
-            ] ) );
+            exit( $success_false );
         }
 
         $env = EnvParser::parse( file_get_contents( '../../.env' ) );
@@ -114,15 +110,11 @@
 
             if ( $is_sended )
             {
-                exit( json_encode( [
-                    'success' => true,
-                ] ) );
+                exit( $success_true );
             }
             else
             {
-                exit( json_encode( [
-                    'success' => false,
-                ] ) );
+                exit( $success_false );
             }
         }
         catch ( Exception $exception )
@@ -137,7 +129,5 @@
     }
     else
     {
-        exit( json_encode( [
-            'success' => false,
-        ] ) );
+        exit( $success_false );
     }
