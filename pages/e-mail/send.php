@@ -87,15 +87,12 @@
 
         $twig = new Twig_Environment( $loader, [
             'autoescape' => true,
-            'cache' => false
+            'cache' => false,
         ] );
 
         $template = $twig->loadTemplate( $env[ 'TWIG_TEMPLATE_FILE_NAME' ] );
 
-        $body = $template->render( [
-            'body' => $data[ 'body' ],
-            'subject' => $data[ 'subject' ]
-        ] );
+        $body = $template->render( $data );
 
         $message = Swift_Message::newInstance();
 
@@ -108,7 +105,7 @@
         $message->setSubject( $data[ 'subject' ] );
 
         $message->setFrom( [
-            $data[ 'from' ][ 'address' ] => $data[ 'from' ][ 'name' ]
+            $data[ 'from' ][ 'address' ] => $data[ 'from' ][ 'name' ],
         ] );
 
         try
