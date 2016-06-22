@@ -13,10 +13,6 @@
 
     $env = EnvParser::parse( file_get_contents( '.env' ) );
 
-    $is_cli = strpos( php_sapi_name(), 'cli' ) !== false;
-
-    $form_action = $is_cli ? 'pages/e-mail/send.php' : 'send';
-
     if ( file_exists( 'languages/' . $env[ 'APP_LOCALE' ] . '/messages.php' ) )
     {
         $messages = require(
@@ -96,7 +92,7 @@
                 <h1><?php echo $messages[ 'title' ]; ?></h1>
                 <hr />
                 <form accept-charset="UTF-8"
-                      action="<?php echo $form_action; ?>"
+                      action="pages/e-mail/send.php"
                       id="contact-form"
                       method="post">
                     <div class="form-item-group-item">
