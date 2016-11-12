@@ -1,7 +1,7 @@
 {
     "require": {
         "ext-mbstring": "*",
-        "m1/env": "^2.0",
+        "m1/env": "^2.1",
         "php": "^5.4",
         "swiftmailer/swiftmailer": "^5.4",
         "twig/twig": "^1.24"
