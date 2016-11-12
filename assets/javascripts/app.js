@@ -20,24 +20,20 @@ $( document ).ready( function () {
         "timeOut": 5000
     };
 
-    var form = document.forms[0];
-
-    $( form ).on( "submit", function ( e ) {
+    $( document.forms[ 0 ] ).on( "submit", function ( e ) {
         e.preventDefault();
 
+        var form = document.forms[ 0 ];
+
         var body = form.querySelector( "textarea[name=\"body\"]" ),
-            subject = form.querySelector( "input[name=\"subject\"]" ),
             from_name = form.querySelector( "input[name=\"from_name\"]" ),
-            from_address = form.querySelector( "input[type=\"email\"]" );
+            from_address = form.querySelector( "input[type=\"email\"]" ),
+            subject = form.querySelector( "input[name=\"subject\"]" );
 
         var data = [
             {
                 "name": "body",
                 "value": body.value,
-            },
-            {
-                "name": "subject",
-                "value": subject.value,
             },
             {
                 "name": "from_name",
@@ -46,6 +42,10 @@ $( document ).ready( function () {
             {
                 "name": "from_address",
                 "value": from_address.value,
+            },
+            {
+                "name": "subject",
+                "value": subject.value,
             }
         ];
 
@@ -53,10 +53,7 @@ $( document ).ready( function () {
 
         $( "button#form-submit-button" ).html(
             "<i class=\"fa fa-fw fa-pulse fa-spinner\"></i>"
-        ).attr(
-            "disabled",
-            "disabled"
-        );
+        ).attr( "disabled", "disabled" );
 
         $.ajax( {
             url: action,
@@ -66,9 +63,7 @@ $( document ).ready( function () {
         } ).done( function ( response ) {
             $( "button#form-submit-button" ).html(
                 "<i class=\"fa fa-fw fa-send\"></i>"
-            ).removeAttr(
-                "disabled"
-            );
+            ).removeAttr( "disabled" );
 
             if ( response.success ) {
                 toastr[ "success" ]( l10n.messages.success );
